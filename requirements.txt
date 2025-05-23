@@ -3,3 +3,4 @@ pandas
 joblib
 flask-cors
 category_encoders
+gunicorn
