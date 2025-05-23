@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lung Cancer Prediction</title>
+  
+</head>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    line-height: 1.6;
+    background-color: #f4f4f9; /* Added background color */
+}
+
+h1 {
+    color: #2c3e50;
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input, select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+button {
+    background-color: #3498db;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #2980b9;
+}
+
+#result {
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: 4px;
+    display: none;
+}
+
+.loading {
+    text-align: center;
+    display: none;
+}
+</style>
+<body>
+    <h1>Lung Cancer Risk Prediction</h1>
+    <form id="predictionForm">
+        <div class="form-group">
+            <label for="gender">Gender:</label>
+            <select id="gender" required>
+                <option value="">Select Gender</option>
+                <option value="M">Male</option>
+                <option value="F">Female</option>
+            </select>
+        </div>
+        
+        <div class="form-group">
+            <label for="age">Age:</label>
+            <input type="number" id="age" min="1" max="120" required>
+        </div>
+        <div class="form-group"></div>
+            <label for="smoking">Smoking:</label>
+            <select id="smoking" required>
+            <option value="">Select</option>
+            <option value="1">YES</option>
+            <option value="2">NO</option>
+            </select>
+        </div>
+        
+        <div class="form-group">
+            <label for="yellow_fingers">Yellow Fingers :</label>
+            <select id="yellow_fingers" required>
+            <option value="">Select</option>
+            <option value="1">YES</option>
+            <option value="2">NO</option>
+            </select>
+        </div>
+        
+        <div class="form-group">
+            <label for="anxiety">Anxiety :</label>
+            <select id="anxiety" required>
+            <option value="">Select</option>
+            <option value="1">YES</option>
+            <option value="2">NO</option>
+            </select>
+        </div>
+        
+        <div class="form-group">
+            <label for="peer_pressure">Peer Pressure:</label>
+            <select id="peer_pressure" required>
+            <option value="">Select</option>
+            <option value="1">YES</option>
+            <option value="2">NO</option>
+            </select>
+        </div>
+        
+        <div class="form-group">
+            <label for="chronic_disease">Chronic Disease:</label>
+            <select id="chronic_disease" required>
+            <option value="">Select</option>
+            <option value="1">YES</option>
+            <option value="2">NO</option>
+            </select>
+        </div>
+        
+        <div class="form-group">
+            <label for="allergy">Allergy :</label>
+            <select id="allergy" required>
+            <option value="">Select</option>
+            <option value="1">YES</option>
+            <option value="2">NO</option>
+            </select>
+        </div>
+        
+        <div class="form-group">
+            <label for="wheezing">Wheezing :</label>
+            <select id="wheezing" required>
+            <option value="">Select</option>
+            <option value="1">YES</option>
+            <option value="2">NO</option>
+            </select>
+        </div>
+        
+        <div class="form-group">
+            <label for="alcohol">Alcohol Consumption:</label>
+            <select id="alcohol" required>
+            <option value="">Select</option>
+            <option value="1">YES</option>
+            <option value="2">NO</option>
+            </select>
+        </div>
+        
+        <div class="form-group">
+            <label for="coughing">Coughing:</label>
+            <select id="coughing" required>
+            <option value="">Select</option>
+            <option value="1">YES</option>
+            <option value="2">NO</option>
+            </select>
+        </div>
+        
+        <div class="form-group">
+            <label for="shortness_of_breath">Shortness of Breath:</label>
+            <select id="shortness_of_breath" required>
+            <option value="">Select</option>
+            <option value="1">YES</option>
+            <option value="2">NO</option>
+            </select>
+        </div>
+        
+        <div class="form-group">
+            <label for="swallowing_difficulty">Swallowing Difficulty:</label>
+            <select id="swallowing_difficulty" required>
+            <option value="">Select</option>
+            <option value="1">YES</option>
+            <option value="2">NO</option>
+            </select>
+        </div>
+        
+        <div class="form-group">
+            <label for="chest_pain">Chest Pain:</label>
+            <select id="chest_pain" required>
+            <option value="">Select</option>
+            <option value="1">YES</option>
+            <option value="2">NO</option>
+            </select>
+        </div>
+        
+        <button type="submit">Predict Risk</button>
+    </form>
+    
+    <div class="loading" id="loading">
+        <p>Processing your request...</p>
+    </div>
+    
+    <div id="result"></div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
